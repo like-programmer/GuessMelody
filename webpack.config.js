@@ -8,7 +8,8 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, `public`),
-    open: false,
+    open: true,
+    compress: false,
     inline: false,
   },
   module: {
