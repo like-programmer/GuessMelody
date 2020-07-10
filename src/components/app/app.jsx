@@ -1,9 +1,13 @@
 import React from "react";
 import WelcomeScreen from "../welcome-screen/welcome-screen.jsx";
 
-const App = () => {
+const App = (props) => {
+  const {errorCount} = props;
+
   return (
-    <WelcomeScreen />
+    <WelcomeScreen
+      errorCount={errorCount}
+    />
   );
 };
 
