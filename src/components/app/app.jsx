@@ -17,6 +17,7 @@ const App = (props) => {
 
 App.propTypes = {
   errorCount: PropTypes.number.isRequired,
+  questions: PropTypes.array.isRequired,
 };
 
 export default App;
