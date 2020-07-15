@@ -5,10 +5,15 @@ import {GameType} from "../../const.js";
 export default class GenreQuestionScreen extends PureComponent {
   constructor(props) {
     super(props);
+
+    this.state = {
+      answers: [false, false, false, false],
+    };
   }
 
   render() {
     const {onAnswer, question} = this.props;
+    const {answers: userAnswers} = this.state;
     const {
       answers,
       genre,
