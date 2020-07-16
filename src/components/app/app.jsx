@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import WelcomeScreen from "../welcome-screen/welcome-screen.jsx";
 
-const welcomeBtnClickHandler = () => {};
+const onWelcomeBtnClick = () => {};
 
 const App = (props) => {
   const {errorCount} = props;
@@ -10,7 +10,7 @@ const App = (props) => {
   return (
     <WelcomeScreen
       errorCount={errorCount}
-      welcomeBtnClickHandler={welcomeBtnClickHandler}
+      onWelcomeBtnClick={onWelcomeBtnClick}
     />
   );
 };
