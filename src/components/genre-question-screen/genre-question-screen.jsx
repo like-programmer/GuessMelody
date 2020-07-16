@@ -2,7 +2,7 @@ import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {GameType} from "../../const.js";
 
-export default class GenreQuestionScreen extends PureComponent {
+class GenreQuestionScreen extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -94,3 +94,5 @@ GenreQuestionScreen.propTypes = {
     type: PropTypes.oneOf([GameType.ARTIST, GameType.GENRE]).isRequired,
   }).isRequired,
 };
+
+export default GenreQuestionScreen;

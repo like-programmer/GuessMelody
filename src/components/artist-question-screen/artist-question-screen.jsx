@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {GameType} from "../../const.js";
 
-export const ArtistQuestionScreen = (props) => {
+const ArtistQuestionScreen = (props) => {
   const {onAnswer, question} = props;
   const {
     answers,
@@ -78,3 +78,5 @@ ArtistQuestionScreen.propTypes = {
     type: PropTypes.oneOf([GameType.GENRE, GameType.ARTIST]).isRequired,
   }).isRequired,
 };
+
+export default ArtistQuestionScreen;
