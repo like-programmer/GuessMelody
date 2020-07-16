@@ -23,7 +23,7 @@ class App extends PureComponent {
     if (step === -1 || step >= questions.length) {
       return (
         <WelcomeScreen
-          errorsCount={errorCount}
+          errorCount={errorCount}
           onWelcomeBtnClick={() => {
             this.setState({
               step: 0,
