@@ -29,7 +29,7 @@ export default class GenreQuestionScreen extends PureComponent {
 
           <svg xmlns="http://www.w3.org/2000/svg" className="timer" viewBox="0 0 780 780">
             <circle className="timer__line" cx="390" cy="390" r="370"
-              style={{filter: `url(#blur)`, transform: `rotate(-90deg) scaleY(-1)`, transformOrigin: `center`}}/>
+                    style={{filter: `url(#blur)`, transform: `rotate(-90deg) scaleY(-1)`, transformOrigin: `center`}}/>
           </svg>
 
           <div className="game__mistakes">
@@ -42,7 +42,13 @@ export default class GenreQuestionScreen extends PureComponent {
         <section className="game__screen">
           <h2 className="game__title">Выберите {genre} треки</h2>
 
-          <form className="game__tracks">
+          <form
+            className="game__tracks"
+            onSubmit={(evt) => {
+              evt.preventDefault();
+              onAnswer(question, this.state.answers);
+            }}
+          >
 
             {answers.map((answer, i) => {
               <div key={`${i}-${answer.src}`} className="track">
@@ -51,15 +57,16 @@ export default class GenreQuestionScreen extends PureComponent {
                   <audio src={answer.src}></audio>
                 </div>
                 <div className="game__answer">
-                  <input className="game__input visually-hidden" type="checkbox" name="answer" value={`answer-${i}`} id={`answer-${1}`}
-                    checked={userAnswers[i]}
-                    onChange={(evt) => {
-                      const value = evt.target.checked;
+                  <input className="game__input visually-hidden" type="checkbox" name="answer" value={`answer-${i}`}
+                         id={`answer-${1}`}
+                         checked={userAnswers[i]}
+                         onChange={(evt) => {
+                           const value = evt.target.checked;
 
-                      this.setState({
-                        answers: [...userAnswers.slice(0, 1), value, ...userAnswers.slice(i + 1)],
-                      });
-                    }}
+                           this.setState({
+                             answers: [...userAnswers.slice(0, 1), value, ...userAnswers.slice(i + 1)],
+                           });
+                         }}
                   />
                   <label className="game__check" htmlFor={`answer-${i}`}>Отметить</label>
                 </div>
