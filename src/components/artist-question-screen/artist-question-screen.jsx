@@ -44,7 +44,7 @@ const ArtistQuestionScreen = (props) => {
         <form className="game__artist">
 
           {answers.map((answer, i) => {
-            <div className="artist">
+            return <div key={answer.artist} className="artist">
               <input className="artist__input visually-hidden" type="radio" name="answer" value={`answer-${i}`} id={`answer-${i}`}
                 onChange={(evt) => {
                   evt.preventDefault();
