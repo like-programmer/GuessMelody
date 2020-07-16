@@ -42,13 +42,22 @@ export const ArtistQuestionScreen = (props) => {
         </div>
 
         <form className="game__artist">
-          <div className="artist">
-            <input className="artist__input visually-hidden" type="radio" name="answer" value="artist-1" id="answer-1"/>
-            <label className="artist__name" htmlFor="answer-1">
-              <img className="artist__picture" src="http://placehold.it/134x134" alt="Пелагея"/>
-              Пелагея
-            </label>
-          </div>
+
+          {answers.map((answer, i) => {
+            <div className="artist">
+              <input className="artist__input visually-hidden" type="radio" name="answer" value={`answer-${i}`} id={`answer-${i}`}
+                onChange={(evt) => {
+                  evt.preventDefault();
+                  onAnswer(question, answer);
+                }}
+              />
+              <label className="artist__name" htmlFor={`answer-${i}`}>
+                <img className="artist__picture" src={answer.picture} alt={answer.artist}/>
+                {answer.artist}
+              </label>
+            </div>;
+          })}
+
         </form>
       </section>
     </section>
