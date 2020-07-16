@@ -15,6 +15,25 @@ class App extends PureComponent {
     };
   }
 
+  _renderGameScreen() {
+    const {errorCount, questions} = this.props;
+    const {step} = this.state;
+    const question = questions[step];
+
+    if (step === -1 || step >= questions.length) {
+      return (
+        <WelcomeScreen
+          errorsCount={errorCount}
+          onWelcomeBtnClick={() => {
+            this.setState({
+              step: 0,
+            });
+          }}
+        />
+      );
+    }
+  }
+
   render() {
     const {questions} = this.props;
 
@@ -27,13 +46,15 @@ class App extends PureComponent {
           <Route exact path="/artist">
             <ArtistQuestionScreen
               question={questions[1]}
-              onAnswer={() => {}}
+              onAnswer={() => {
+              }}
             />
           </Route>
           <Route exact path="/genre">
             <GenreQuestionScreen
               question={questions[0]}
-              onAnswer={() => {}}
+              onAnswer={() => {
+              }}
             />
           </Route>
         </Switch>
