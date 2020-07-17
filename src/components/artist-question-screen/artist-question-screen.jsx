@@ -24,9 +24,9 @@ const ArtistQuestionScreen = (props) => {
         </svg>
 
         <div className="game__mistakes">
-          <div className="wrong"></div>
-          <div className="wrong"></div>
-          <div className="wrong"></div>
+          <div className="wrong"/>
+          <div className="wrong"/>
+          <div className="wrong"/>
         </div>
       </header>
 
@@ -34,17 +34,17 @@ const ArtistQuestionScreen = (props) => {
         <h2 className="game__title">Кто исполняет эту песню?</h2>
         <div className="game__track">
           <div className="track">
-            <button className="track__button track__button--play" type="button"></button>
+            <button className="track__button track__button--play" type="button"/>
             <div className="track__status">
-              <audio src={song.src}></audio>
+              <audio src={song.src}/>
             </div>
           </div>
         </div>
 
         <form className="game__artist">
 
-          {answers.map((answer, i) => {
-            return <div key={answer.artist} className="artist">
+          {answers.map((answer, i) => (
+            <div key={answer.artist} className="artist">
               <input className="artist__input visually-hidden" type="radio" name="answer" value={`answer-${i}`} id={`answer-${i}`}
                 onChange={(evt) => {
                   evt.preventDefault();
@@ -55,8 +55,8 @@ const ArtistQuestionScreen = (props) => {
                 <img className="artist__picture" src={answer.picture} alt={answer.artist}/>
                 {answer.artist}
               </label>
-            </div>;
-          })}
+            </div>
+          ))}
 
         </form>
       </section>

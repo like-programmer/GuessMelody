@@ -33,9 +33,9 @@ class GenreQuestionScreen extends PureComponent {
           </svg>
 
           <div className="game__mistakes">
-            <div className="wrong"></div>
-            <div className="wrong"></div>
-            <div className="wrong"></div>
+            <div className="wrong"/>
+            <div className="wrong"/>
+            <div className="wrong"/>
           </div>
         </header>
 
@@ -49,29 +49,28 @@ class GenreQuestionScreen extends PureComponent {
               onAnswer(question, this.state.answers);
             }}
           >
-
-            {answers.map((answer, i) => {
-              return <div key={`${i}-${answer.src}`} className="track">
-                <button className="track__button track__button--play" type="button"></button>
+            {answers.map((answer, i) => (
+              <div key={`${i}-${answer.src}`} className="track">
+                <button className="track__button track__button--play" type="button"/>
                 <div className="track__status">
-                  <audio src={answer.src}></audio>
+                  <audio src={answer.src}/>
                 </div>
                 <div className="game__answer">
                   <input className="game__input visually-hidden" type="checkbox" name="answer" value={`answer-${i}`}
-                    id={`answer-${1}`}
+                    id={`answer-${i}`}
                     checked={userAnswers[i]}
                     onChange={(evt) => {
                       const value = evt.target.checked;
 
                       this.setState({
-                        answers: [...userAnswers.slice(0, 1), value, ...userAnswers.slice(i + 1)],
+                        answers: [...userAnswers.slice(0, i), value, ...userAnswers.slice(i + 1)],
                       });
                     }}
                   />
                   <label className="game__check" htmlFor={`answer-${i}`}>Отметить</label>
                 </div>
-              </div>;
-            })}
+              </div>
+            ))}
 
 
             <button className="game__submit button" type="submit">Ответить</button>
