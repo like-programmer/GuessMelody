@@ -34,5 +34,5 @@ export default [
       picture: `${AVATAR_URL}/${Math.random()}`,
       artist: `Jim Beam`,
     }],
-  }
+  },
 ];
