@@ -9,13 +9,14 @@ class GenreQuestionScreen extends PureComponent {
     super(props);
 
     this.state = {
+      activePlayer: 0,
       answers: [false, false, false, false],
     };
   }
 
   render() {
     const {onAnswer, question} = this.props;
-    const {answers: userAnswers} = this.state;
+    const {activePlayer, answers: userAnswers} = this.state;
     const {
       answers,
       genre,
@@ -36,7 +37,10 @@ class GenreQuestionScreen extends PureComponent {
             <div key={`${i}-${answer.src}`} className="track">
 
               <AudioPlayer
-                isPlaying={i === 0}
+                onPlayBtnClick={() => {
+                  this.setState({activePlayer: activePlayer === i ? -1 : i});
+                }}
+                isPlaying={i === activePlayer}
                 src={answer.src}
               />
 

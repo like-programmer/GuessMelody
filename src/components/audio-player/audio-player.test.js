@@ -13,6 +13,7 @@ it(`AudioPlayer is rendered correctly`, () => {
   const {song} = mock;
 
   const tree = renderer.create(<AudioPlayer
+    onPlayBtnClick={() => {}}
     isPlaying={false}
     src={song.src}
   />, {
