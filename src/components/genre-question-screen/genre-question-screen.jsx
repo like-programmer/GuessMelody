@@ -16,7 +16,7 @@ class GenreQuestionScreen extends PureComponent {
 
   render() {
     const {onAnswer, question} = this.props;
-    const {activePlayer, answers: userAnswers} = this.state;
+    const {answers: userAnswers, activePlayer} = this.state;
     const {
       answers,
       genre,
@@ -38,7 +38,9 @@ class GenreQuestionScreen extends PureComponent {
 
               <AudioPlayer
                 onPlayBtnClick={() => {
-                  this.setState({activePlayer: activePlayer === i ? -1 : i});
+                  this.setState({
+                    activePlayer: activePlayer === i ? -1 : i,
+                  });
                 }}
                 isPlaying={i === activePlayer}
                 src={answer.src}
