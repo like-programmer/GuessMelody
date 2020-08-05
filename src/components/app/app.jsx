@@ -2,7 +2,7 @@ import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {Switch, Route, BrowserRouter} from "react-router-dom";
 import {connect} from "react-redux";
-import {ActionCreactor} from "../../reducer.js";
+import {ActionCreator} from "../../reducer.js";
 import GameScreen from "../game-screen/game-screen.jsx";
 import WelcomeScreen from "../welcome-screen/welcome-screen.jsx";
 import ArtistQuestionScreen from "../artist-question-screen/artist-question-screen.jsx";
@@ -110,11 +110,12 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onWelcomeBtnClick() {
-    dispatch(ActionCreactor.incrementStep());
+    dispatch(ActionCreator.incrementStep());
   },
 
-  onUserAnswer() {
-    dispatch(ActionCreactor.incrementStep());
+  onUserAnswer(question, answer) {
+    dispatch(ActionCreator.incrementStep());
+    dispatch(ActionCreator.incrementMistake(question, answer));
   }
 });
 
