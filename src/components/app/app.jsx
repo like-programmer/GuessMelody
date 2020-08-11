@@ -8,10 +8,10 @@ import WelcomeScreen from "../welcome-screen/welcome-screen.jsx";
 import ArtistQuestionScreen from "../artist-question-screen/artist-question-screen.jsx";
 import GenreQuestionScreen from "../genre-question-screen/genre-question-screen.jsx";
 
-import withAudioPlayer from "../../hocks/with-audio-player/with-audio-player";
+import withActivePlayer from "../../hocks/with-active-player/with-active-player.js";
 
-const ArtistQuestionScreenWrapped = withAudioPlayer(ArtistQuestionScreen);
-const GenreQuestionScreenWrapped = withAudioPlayer(GenreQuestionScreen);
+const ArtistQuestionScreenWrapped = withActivePlayer(ArtistQuestionScreen);
+const GenreQuestionScreenWrapped = withActivePlayer(GenreQuestionScreen);
 
 import {GameType} from "../../const.js";
 
