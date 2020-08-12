@@ -4,6 +4,8 @@ import {Switch, Route, BrowserRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../reducer.js";
 import GameScreen from "../game-screen/game-screen.jsx";
+import GameOverScreen from "../game-over-screen/game-over-screen.jsx";
+import WinScreen from "../win-screen/win-screen.jsx";
 import WelcomeScreen from "../welcome-screen/welcome-screen.jsx";
 import ArtistQuestionScreen from "../artist-question-screen/artist-question-screen.jsx";
 import GenreQuestionScreen from "../genre-question-screen/genre-question-screen.jsx";
@@ -20,6 +22,7 @@ import {GameType} from "../../const.js";
 class App extends PureComponent {
   _renderGameScreen() {
     const {
+      mistakes,
       maxMistakes,
       questions,
       onUserAnswer,
@@ -28,11 +31,29 @@ class App extends PureComponent {
     } = this.props;
     const question = questions[step];
 
-    if (step === -1 || step >= questions.length) {
+    if (step === -1) {
       return (
         <WelcomeScreen
           errorCount={maxMistakes}
           onWelcomeBtnClick={onWelcomeBtnClick}
+        />
+      );
+    }
+
+    if (mistakes >= maxMistakes) {
+      return (
+        <GameOverScreen
+          onReplayBtnClick={() => {}}
+        />
+      );
+    }
+
+    if (step >= questions.length) {
+      return (
+        <WinScreen
+          questionCount={questions.length}
+          mistakeCount={mistakes}
+          onReplayBtnClick={() => {}}
         />
       );
     }
@@ -98,6 +119,7 @@ class App extends PureComponent {
 
 
 App.propTypes = {
+  mistakes: PropTypes.number.isRequired,
   maxMistakes: PropTypes.number.isRequired,
   questions: PropTypes.array.isRequired,
   onUserAnswer: PropTypes.func.isRequired,
@@ -109,6 +131,7 @@ const mapStateToProps = (state) => ({
   step: state.step,
   maxMistakes: state.maxMistakes,
   questions: state.questions,
+  mistakes: state.mistakes,
 });
 
 const mapDispatchToProps = (dispatch) => ({
