@@ -57,8 +57,8 @@ describe(`Render App`, () => {
               questions={questions}
               onUserAnswer={() => {
               }}
-              onWelcomeBtnClick={() => {
-              }}
+              onWelcomeBtnClick={() => {}}
+              resetGame={() => {}}
               step={-1}
             />
           </Provider>
@@ -83,6 +83,7 @@ describe(`Render App`, () => {
               }}
               onWelcomeBtnClick={() => {
               }}
+              resetGame={() => {}}
               step={0}
             />
           </Provider>, {
@@ -111,6 +112,7 @@ describe(`Render App`, () => {
               }}
               onWelcomeBtnClick={() => {
               }}
+              resetGame={() => {}}
               step={1}
             />
           </Provider>, {
@@ -139,6 +141,7 @@ describe(`Render App`, () => {
               }}
               onWelcomeBtnClick={() => {
               }}
+              resetGame={() => {}}
               step={1}
             />
           </Provider>, {
@@ -167,6 +170,7 @@ describe(`Render App`, () => {
               }}
               onWelcomeBtnClick={() => {
               }}
+              resetGame={() => {}}
               step={3}
             />
           </Provider>, {
