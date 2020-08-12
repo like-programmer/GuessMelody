@@ -23,8 +23,10 @@ const question = {
 it(`GenreQuestionScreen is rendered correctly`, () => {
   const tree = renderer.create((
     <GenreQuestionScreen
+      userAnswers={[false, false, false, false]}
       question={question}
       onAnswer={() => {}}
+      onChange={() => {}}
       renderPlayer={() => {}}
     />
   ), {
