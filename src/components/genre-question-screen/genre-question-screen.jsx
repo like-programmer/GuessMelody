@@ -1,16 +1,17 @@
-import React from "react";
+import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {GameType} from "../../const.js";
 
 
-const GenreQuestionScreen = (props) => {
+class GenreQuestionScreen extends PureComponent {
+  render() {
     const {
       renderPlayer,
       userAnswers,
       question,
       onAnswer,
       onChange,
-    } = props;
+    } = this.props;
 
     const {
       answers,
@@ -56,7 +57,8 @@ const GenreQuestionScreen = (props) => {
 
       </section>
     );
-};
+  }
+}
 
 
 GenreQuestionScreen.propTypes = {
@@ -71,7 +73,7 @@ GenreQuestionScreen.propTypes = {
     type: PropTypes.oneOf([GameType.ARTIST, GameType.GENRE]).isRequired,
   }).isRequired,
   renderPlayer: PropTypes.func.isRequired,
-  userAnswes: PropTypes.arrayOf(PropTypes.bool).isRequired,
+  userAnswers: PropTypes.arrayOf(PropTypes.bool).isRequired,
 };
 
 
