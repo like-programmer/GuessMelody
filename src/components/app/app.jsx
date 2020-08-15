@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import {Switch, Route, BrowserRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../reducer/game/game.js";
-import {AuthorizationStatus} from "../../reducer/user/user.js";
+import AuthorizationStatus from "../../reducer/user/user.js";
+import AuthScreen from "../auth-screen/auth-screen.jsx";
 import GameScreen from "../game-screen/game-screen.jsx";
 import GameOverScreen from "../game-over-screen/game-over-screen.jsx";
 import WinScreen from "../win-screen/win-screen.jsx";
@@ -105,6 +106,7 @@ class App extends PureComponent {
           <Route exact path="/">
             {this._renderGameScreen()}
           </Route>
+
           <Route exact path="/artist">
             <ArtistQuestionScreenWrapped
               question={questions[1]}
@@ -112,10 +114,20 @@ class App extends PureComponent {
               }}
             />
           </Route>
+
           <Route exact path="/genre">
             <GenreQuestionScreenWrapped
               question={questions[0]}
               onAnswer={() => {
+              }}
+            />
+          </Route>
+
+          <Route exact path="/dev-auth">
+            <AuthScreen
+              onReplayButtonClick={() => {
+              }}
+              onSubmit={() => {
               }}
             />
           </Route>
