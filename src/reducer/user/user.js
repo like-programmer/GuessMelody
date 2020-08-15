@@ -20,6 +20,17 @@ const ActionCreator = {
   },
 };
 
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ActionType.REQUIRED_AUTHORIZATION:
+      return Object.assign({}, state, {
+        authorizationStatus: action.payload,
+      });
+  }
+
+  return state;
+};
+
 const Operation = {
   checkAuth: () => (dispatch, getState, api) => {
     return api.get(`/login`)
@@ -40,17 +51,6 @@ const Operation = {
         dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
       });
   },
-};
-
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case ActionType.REQUIRED_AUTHORIZATION:
-      return Object.assign({}, state, {
-        authorizationStatus: action.payload,
-      });
-  }
-
-  return state;
 };
 
 

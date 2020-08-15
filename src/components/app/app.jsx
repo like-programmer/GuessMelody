@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {Switch, Route, BrowserRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../reducer/game/game.js";
-import AuthorizationStatus from "../../reducer/user/user.js";
+import {AuthorizationStatus} from "../../reducer/user/user.js";
 import AuthScreen from "../auth-screen/auth-screen.jsx";
 import GameScreen from "../game-screen/game-screen.jsx";
 import GameOverScreen from "../game-over-screen/game-over-screen.jsx";
