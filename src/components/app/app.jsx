@@ -32,13 +32,11 @@ class App extends PureComponent {
   _renderGameScreen() {
     const {
       authorizationStatus,
-      login,
       mistakes,
       maxMistakes,
       questions,
       onUserAnswer,
       onWelcomeBtnClick,
-      resetGame,
       step,
     } = this.props;
     const question = questions[step];
@@ -53,29 +51,14 @@ class App extends PureComponent {
     }
 
     if (mistakes >= maxMistakes) {
-      return (
-        <GameOverScreen
-          onReplayBtnClick={resetGame}
-        />
-      );
+      return history.push(AppRoute.LOSE);
     }
 
     if (step >= questions.length) {
       if (authorizationStatus === AuthorizationStatus.AUTH) {
-        return (
-          <WinScreen
-            questionsCount={questions.length}
-            mistakesCount={mistakes}
-            onReplayButtonClick={resetGame}
-          />
-        );
+        return history.push(AppRoute.RESULT);
       } else if (authorizationStatus === AuthorizationStatus.NO_AUTH) {
-        return (
-          <AuthScreen
-            onReplayButtonClick={resetGame}
-            onSubmit={login}
-          />
-        );
+        return history.push(AppRoute.LOGIN);
       }
 
       return null;
