@@ -14,9 +14,9 @@ describe(`Should WinScreen render correctly`, () => {
               history={history}
             >
               <WinScreen
-                questionsCount={3}
-                mistakesCount={0}
-                onReplayButtonClick={() => {}}
+                questionCount={3}
+                mistakeCount={0}
+                onReplayBtnClick={() => {}}
               />
             </Router>
         )
@@ -32,9 +32,9 @@ describe(`Should WinScreen render correctly`, () => {
               history={history}
             >
               <WinScreen
-                questionsCount={3}
-                mistakesCount={1}
-                onReplayButtonClick={() => {}}
+                questionCount={3}
+                mistakeCount={1}
+                onReplayBtnClick={() => {}}
               />
             </Router>
         )
@@ -52,9 +52,9 @@ describe(`Should WinScreen render correctly`, () => {
               history={history}
             >
               <WinScreen
-                questionsCount={2}
-                mistakesCount={0}
-                onReplayButtonClick={() => {}}
+                questionCount={2}
+                mistakeCount={0}
+                onReplayBtnClick={() => {}}
               />
             </Router>
         )
@@ -70,9 +70,9 @@ describe(`Should WinScreen render correctly`, () => {
               history={history}
             >
               <WinScreen
-                questionsCount={2}
-                mistakesCount={1}
-                onReplayButtonClick={() => {}}
+                questionCount={2}
+                mistakeCount={1}
+                onReplayBtnClick={() => {}}
               />
             </Router>
         )

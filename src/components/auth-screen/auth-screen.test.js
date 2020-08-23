@@ -8,7 +8,7 @@ const noop = () => {};
 it(`AuthScreen component render correctly`, () => {
   const tree = renderer.create(
       <AuthScreen
-        onReplayButtonClick={noop}
+        onReplayBtnClick={noop}
         onSubmit={noop}
       />
   ).toJSON();

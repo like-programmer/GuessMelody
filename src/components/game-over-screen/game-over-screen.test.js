@@ -11,7 +11,7 @@ it(`Should GameOverScreen render correctly`, () => {
           history={history}
         >
           <GameOverScreen
-            onReplayButtonClick={() => {
+            onReplayBtnClick={() => {
             }}
           />
         </Router>

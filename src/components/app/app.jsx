@@ -107,14 +107,14 @@ class App extends PureComponent {
 
           <Route exact path={AppRoute.LOGIN}>
             <AuthScreen
-              onReplayButtonClick={resetGame}
+              onReplayBtnClick={resetGame}
               onSubmit={login}
             />
           </Route>
 
           <Route exact path={AppRoute.LOSE}>
             <GameOverScreen
-              onReplayButtonClick={resetGame}
+              onReplayBtnClick={resetGame}
             />
           </Route>
 
@@ -124,9 +124,9 @@ class App extends PureComponent {
             render={() => {
               return (
                 <WinScreen
-                  questionsCount={questions.length}
-                  mistakesCount={mistakes}
-                  onReplayButtonClick={resetGame}
+                  questionCount={questions.length}
+                  mistakeCount={mistakes}
+                  onReplayBtnClick={resetGame}
                 />
               );
             }}

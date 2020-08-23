@@ -24,7 +24,7 @@ class AuthScreen extends PureComponent {
   }
 
   render() {
-    const {onReplayButtonClick} = this.props;
+    const {onReplayBtnClick} = this.props;
 
     return (
       <section className="login">
@@ -64,7 +64,7 @@ class AuthScreen extends PureComponent {
         <button
           className="replay"
           type="button"
-          onClick={onReplayButtonClick}
+          onClick={onReplayBtnClick}
         >Сыграть ещё раз
         </button>
       </section>
@@ -74,7 +74,7 @@ class AuthScreen extends PureComponent {
 
 AuthScreen.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  onReplayButtonClick: PropTypes.func.isRequired,
+  onReplayBtnClick: PropTypes.func.isRequired,
 };
 
 
